@@ -1,0 +1,18 @@
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id='output' v-show='visa'>
+    Syns bara om visa = true
+  </div>
+</body>
+</html>
+<script>
+  const app = new Vue({
+    el: '#output',
+    data: {
+      visa: true
+    }
+  })
+</script>

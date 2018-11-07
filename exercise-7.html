@@ -1,0 +1,35 @@
+<html>
+<head>
+  <style>
+    .basic {
+      color: white;
+      background-color: gray;
+      font-weight: 600;
+      padding: 1em;
+    }
+    .warning {
+      background-color: red;
+    }
+    .okay {
+      background-color: green;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id='output' class="basic"
+  v-bind:class="{warning: warningIsActive, okay: isOk}">
+    {{ message }}
+  </div>
+</body>
+</html>
+<script>
+  const app = new Vue({
+    el: '#output',
+    data: {
+      message: "Some info",
+      warningIsActive: true,
+      isOk: false
+    }
+  })
+</script>
