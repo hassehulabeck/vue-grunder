@@ -1,0 +1,56 @@
+<html>
+<head>
+  <style>
+    .card {
+      border: thin solid #333;
+      padding: 1em;
+      margin: 4px;
+      border-radius: 5px;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div>
+    <div id="out">
+      <card
+        v-for='user, index in users'
+        v-bind:user='user'
+        v-bind:key='index'
+        ></card>
+    </div>
+  </div>
+</body>
+</html>
+
+<script>
+
+Vue.component('card', {
+  props: [
+    'user'
+  ],
+  template: `
+    <div class="card">
+      <h1>{{ user.name }}</h1>
+      <p> {{ user.age }} </p>
+    </div>
+  `
+})
+
+const app = new Vue({
+  el: "#out",
+  data: {
+    users: [
+      {
+        name: "Arne",
+        age: 44
+      },
+      {
+        name: "Berit",
+        age: 24
+      }
+    ]
+  }
+})
+
+</script>

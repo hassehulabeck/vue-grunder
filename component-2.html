@@ -1,0 +1,61 @@
+<html>
+<head>
+  <style>
+    .card {
+      background-color: rgba(200,200,50, 0.25);
+      padding: 1em;
+      margin: 4px;
+      border-radius: 5px;
+      width: 33%;
+      box-shadow: 2px 2px 5px gray;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div>
+    <div id="out">
+      <card
+        v-for='user, index in users'
+        v-bind:user='user'
+        v-bind:key='index'
+        ></card>
+    </div>
+  </div>
+</body>
+</html>
+
+<script>
+
+Vue.component('card', {
+  props: [
+    'user'
+  ],
+  template: `
+    <div class="card">
+      <h1>{{ user.name }}</h1>
+      <img :src=user.image width="100px">
+      <p>Ålder: {{ user.age }} </p>
+    </div>
+  `
+})
+
+const app = new Vue({
+  el: "#out",
+  data: {
+    users: [
+      {
+        name: "Arne",
+        age: 44,
+        image: 'http://www.malenydentist.com.au/wp-content/uploads/2013/08/Person-icon-grey.jpg'
+      },
+      {
+        name: "Berit",
+        age: 24,
+        image: 'http://www.malenydentist.com.au/wp-content/uploads/2013/08/Person-icon-grey.jpg'
+      }
+    ]
+  }
+})
+
+</script>

@@ -1,0 +1,25 @@
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="output">
+    <ul v-for="letter in letters">
+      <li>{{ letter }}</li>
+    </ul>
+  </div>
+</body>
+</html>
+<script>
+  var app = new Vue({
+    el: "#output",
+    data: {
+      letters: [
+        "Alfa",
+        "Beta",
+        "Gamma"
+      ]
+    }
+  });
+
+</script>

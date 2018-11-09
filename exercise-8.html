@@ -1,0 +1,28 @@
+<html>
+<head>
+  <style>
+    .basic {
+      color: white;
+      background-color: gray;
+      font-weight: 600;
+      padding: 1em;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id='output' class="basic"
+  v-bind:style="{backgroundColor: myColor}">
+    {{ message }}
+  </div>
+</body>
+</html>
+<script>
+  const app = new Vue({
+    el: '#output',
+    data: {
+      message: "Some info",
+      myColor: 'orange'
+    }
+  })
+</script>

@@ -1,0 +1,30 @@
+<html>
+<head>
+  <style>
+    #output {
+      color: white;
+      background-color: gray;
+      height: 100px;
+      width: 100px;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id='output' v-on:click='say'>
+  </div>
+</body>
+</html>
+<script>
+  const app = new Vue({
+    el: '#output',
+    data: {
+      alertText: 'Hej'
+    },
+    methods: {
+      say: function() {
+        alert(this.alertText);
+      }
+    }
+  })
+</script>

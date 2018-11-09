@@ -1,0 +1,44 @@
+<html>
+<head>
+  <style>
+    div {
+      border: 1px solid red;
+      padding: 1em;
+      margin: 1em;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id='output'>
+    {{ mess }}
+  </div>
+  <div>
+    <ul v-if='number < 5'>
+      <li v-for='capital in capitals'>
+        {{ capital }}
+      </li>
+    </ul>
+    <input type="text" v-model='newCapital'>
+    <button v-on:click='addCapital'>Lägg till huvudstad</button>
+  </div>
+</body>
+</html>
+<script>
+  const app = new Vue({
+    el: 'div:nth-child(2)',
+    data: {
+      capitals: [
+        "Aten",
+        "Rom"
+      ],
+      newCapital: '',
+      number: 8
+    },
+    methods: {
+      addCapital() {
+        this.capitals.push(this.newCapital);
+      }
+    }
+  })
+</script>
