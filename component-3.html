@@ -1,0 +1,70 @@
+<html>
+<head>
+  <style>
+    .pInfo {
+      background-color: rgba(100,200,20, 0.15);
+      padding: 0.3em;
+      margin: 7px;
+      border-radius: 9px;
+      width: 42%;
+      box-shadow: 4px 4px 4px rgba(33,133,233, 0.5);
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div>
+    <div id="out">
+      <product-info
+        v-for='product, index in products'
+        v-bind:product='product'
+        v-bind:key='index'
+        ></product-info>
+    </div>
+  </div>
+</body>
+</html>
+
+<script>
+
+Vue.component('product-info', {
+  props: [
+    'product'
+  ],
+  template: `
+    <div class="pInfo">
+      <h1>{{ product.productName }}</h1>
+      <p>Pris (inkl moms): {{ priceInclMoms }} </p>
+    </div>
+  `,
+  computed: {
+    priceInclMoms: function() {
+      return this.product.priceExklMoms + (this.product.priceExklMoms * (this.product.moms/100));
+    }
+  }
+})
+
+const app = new Vue({
+  el: "#out",
+  data: {
+    products: [
+      {
+        productName: 'Stora boken om korv',
+        priceExklMoms: 150,
+        moms: 6
+      },
+      {
+        productName: 'Korv',
+        priceExklMoms: 36,
+        moms: 12
+      },
+      {
+        productName: 'Korvätarhandskar',
+        priceExklMoms: 1270,
+        moms: 25
+      }
+    ]
+  }
+})
+
+</script>
